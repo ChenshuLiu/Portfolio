@@ -85,6 +85,10 @@ a {
   text-align: justify;
 }
 
+body {
+  overflow: hidden;
+}
+
 li {
   margin-bottom: 5px;
 }
