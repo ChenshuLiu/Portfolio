@@ -220,3 +220,8 @@ h2 {
   font-family: 'Lato', Verdana, Helvetica, sans-serif;
   font-size: 16px;
 }
+
+.image_show{
+  cursor: pointer;
+  
+}
