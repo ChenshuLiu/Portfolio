@@ -105,11 +105,15 @@
   /* Photo sizing */
   .intro-photo {
     width: 100%;
-    height: auto;
+    max-width: 300px;   /* Keeps it from growing too large */
+    height: auto;       /* Maintain aspect ratio */
     border-radius: 8px;
     object-fit: cover;
-    max-width: 300px;
+    display: block;
   }
+  
+  
+  
   
   /* Icons row */
   .icon-links {
@@ -468,4 +472,3 @@
     color: #222;  /* adjust color to fit your theme */
     text-align: center;
   }
-  
