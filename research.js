@@ -16,24 +16,27 @@
         // Extract year, category, and type
         const cardYear = tags.find(t => /^\d{4}$/.test(t.replace('#','')));
         // const cardCategory = tags.find(t => ['#ai:cv', '#healthcare', '#education'].includes(t));
-        const cardCategory = tags.find(t =>
-            [
-              '#ai:cv',
-              '#ai:nlp',
-              '#ai:llm',
-              '#ai:time series model',
-              '#ai:ml',
-              '#ai:hci',
-              '#ai:rl',
-              '#healthcare',
-              '#wearable',
-              '#biochemistry',
-              '#material science',
-              '#cultural heriage conservation',
-              '#education',
-              'additive manufacturing'
-            ].includes(t)
-          );          
+        const validCategories = [
+            '#ai:cv',
+            '#ai:nlp',
+            '#ai:llm',
+            '#ai:time series model',
+            '#ai:ml',
+            '#ai:hci',
+            '#ai:rl',
+            '#healthcare',
+            '#wearable',
+            '#biochemistry',
+            '#material science',
+            '#cultural heritage conservation',
+            '#archeaology',
+            '#education',
+            '#additive manufacturing'
+          ];
+          
+        const categoryMatch = category === 'all' || 
+            tags.some(t => validCategories.includes(t) && t.includes(category));
+          
         const cardType = tags.find(t => ['#journal', '#conference', '#project', '#workshop'].includes(t));
   
         // Extract title and description text
@@ -41,7 +44,7 @@
         const description = card.querySelector('.project-description').textContent.toLowerCase();
   
         // Filters: true if filter is 'all' or matches card attribute
-        const categoryMatch = category === 'all' || (cardCategory && cardCategory.includes(category));
+        // const categoryMatch = category === 'all' || (cardCategory && cardCategory.includes(category));
         const yearMatch = year === 'all' || (cardYear && cardYear.includes(year));
         const typeMatch = type === 'all' || (cardType && cardType.includes(type));
         const keywordMatch = !keyword || title.includes(keyword) || description.includes(keyword);
