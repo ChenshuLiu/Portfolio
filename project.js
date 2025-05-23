@@ -36,8 +36,6 @@
           
         const categoryMatch = category === 'all' || 
             tags.some(t => validCategories.includes(t) && t.includes(category));
-          
-        const cardType = tags.find(t => ['#journal', '#conference', '#workshop'].includes(t));
   
         // Extract title and description text
         const title = card.querySelector('.project-title').textContent.toLowerCase();
